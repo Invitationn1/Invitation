@@ -10,15 +10,18 @@
   <title>Wedding of Dr. Ahmed & Dr. Alaa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap">
+  <link rel="preload" as="image" href="1.webp">
+  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Lora:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap"></noscript>
   <link rel="stylesheet" href="css/styles.css?v=49">
 </head>
 <body>
   <a class="skip-link" href="#invitation">Skip to Invitation</a>
 
   <section class="splash" id="splash" aria-label="Wedding Cover">
-    <img class="splash__image" src="1.png" alt="Dr. Ahmed and Dr. Alaa - Tap to open invitation" decoding="async">
-    <video class="splash__video" src="effect.mp4" poster="1.png" playsinline muted preload="auto"></video>
+    <img class="splash__image" src="1.webp" alt="Dr. Ahmed and Dr. Alaa - Tap to open invitation" decoding="async" fetchpriority="high">
+    <video class="splash__video" src="effect.mp4" poster="1.webp" playsinline muted preload="metadata"></video>
     <p class="splash__hint">Tap to open</p>
   </section>
 

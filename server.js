@@ -72,7 +72,7 @@ const server = http.createServer((req, res) => {
       }
     }
 
-    let cacheControl = "public, max-age=3600";
+    let cacheControl = "public, max-age=604800";
     if (ext === ".html") cacheControl = "no-cache";
     if (isAudioVideo) cacheControl = "public, max-age=604800";
 
