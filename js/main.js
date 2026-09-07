@@ -47,6 +47,22 @@
     revealSite();
   });
 
+  const splashVideo = splash?.querySelector(".splash__video");
+  const warmVideo = () => {
+    if (splashVideo) {
+      splashVideo.preload = "auto";
+      if (splashVideo.readyState < 2) splashVideo.load();
+    }
+    window.removeEventListener("load", warmVideo);
+    document.documentElement.removeEventListener("touchstart", warmVideo, { capture: true });
+    document.documentElement.removeEventListener("pointerdown", warmVideo, { capture: true });
+  };
+  if (splashVideo) {
+    window.addEventListener("load", () => window.setTimeout(warmVideo, 500));
+    document.documentElement.addEventListener("touchstart", warmVideo, { capture: true, passive: true });
+    document.documentElement.addEventListener("pointerdown", warmVideo, { capture: true, passive: true });
+  }
+
   function revealSite() {
     playMusic();
 
