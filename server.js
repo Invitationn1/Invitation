@@ -18,7 +18,8 @@ const MIME = {
   ".ico": "image/x-icon",
   ".mp3": "audio/mpeg",
   ".wav": "audio/wav",
-  ".webm": "audio/webm",
+  ".webm": "video/webm",
+  ".mp4": "video/mp4",
   ".woff2": "font/woff2"
 };
 
@@ -51,7 +52,7 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(filePath).toLowerCase();
     const contentType = MIME[ext] || "application/octet-stream";
 
-    const isAudioVideo = ext === ".mp3" || ext === ".wav" || ext === ".webm" || ext === ".webp" || ext === ".jpg" || ext === ".jpeg" || ext === ".png";
+    const isAudioVideo = ext === ".mp3" || ext === ".wav" || ext === ".webm" || ext === ".mp4" || ext === ".webp" || ext === ".jpg" || ext === ".jpeg" || ext === ".png";
     const range = req.headers.range;
 
     if (isAudioVideo && range) {
