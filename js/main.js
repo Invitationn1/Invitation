@@ -22,8 +22,32 @@
 
   splash?.addEventListener("click", () => {
     if (splash.classList.contains("is-dismissed")) return;
+
+    const video = splash.querySelector(".splash__video");
+    if (video) {
+      video.classList.add("is-playing");
+      video.currentTime = 0;
+      let finished = false;
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        splash.classList.add("is-dismissed");
+        body.classList.remove("intro-locked");
+        revealSite();
+      };
+      video.play().catch(() => finish());
+      video.addEventListener("ended", finish, { once: true });
+      video.addEventListener("error", finish, { once: true });
+      window.setTimeout(finish, 12000);
+      return;
+    }
+
     splash.classList.add("is-dismissed");
     body.classList.remove("intro-locked");
+    revealSite();
+  });
+
+  function revealSite() {
     playMusic();
 
     const flash = document.createElement("div");
@@ -66,7 +90,7 @@
 
       requestAnimationFrame(step);
     }, 420);
-  });
+  }
 
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
